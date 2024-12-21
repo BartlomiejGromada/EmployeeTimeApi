@@ -5,6 +5,16 @@ VisualStudioVersion = 17.12.35521.163 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Presentation", "src\EmployeeTimeApi.Presentation\EmployeeTimeApi.Presentation.csproj", "{9790144D-6829-4447-B463-4CA40DD86F02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Domain", "src\EmployeeTimeApi.Domain\EmployeeTimeApi.Domain.csproj", "{4B83E8A5-25E5-4594-B905-AB6CE12D0595}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Application", "src\EmployeeTimeApi.Application\EmployeeTimeApi.Application.csproj", "{529725CD-CA75-41B9-A4E9-8E0E15608D06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Infrastructure", "src\EmployeeTimeApi.Infrastructure\EmployeeTimeApi.Infrastructure.csproj", "{1C5CBE12-0DF4-46F9-9952-4C5FEBDB7256}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Shared.Abstractions", "src\EmployeeTimeApi.Shared.Abstractions\EmployeeTimeApi.Shared.Abstractions.csproj", "{9509AA57-E9B0-4A5A-9811-42290677D9DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Shared.Infrastructure", "src\EmployeeTimeApi.Shared.Infrastructure\EmployeeTimeApi.Shared.Infrastructure.csproj", "{05091F64-E952-4F1A-80C9-2038420A2E1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{9790144D-6829-4447-B463-4CA40DD86F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9790144D-6829-4447-B463-4CA40DD86F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9790144D-6829-4447-B463-4CA40DD86F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B83E8A5-25E5-4594-B905-AB6CE12D0595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B83E8A5-25E5-4594-B905-AB6CE12D0595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B83E8A5-25E5-4594-B905-AB6CE12D0595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B83E8A5-25E5-4594-B905-AB6CE12D0595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{529725CD-CA75-41B9-A4E9-8E0E15608D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529725CD-CA75-41B9-A4E9-8E0E15608D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529725CD-CA75-41B9-A4E9-8E0E15608D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529725CD-CA75-41B9-A4E9-8E0E15608D06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C5CBE12-0DF4-46F9-9952-4C5FEBDB7256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C5CBE12-0DF4-46F9-9952-4C5FEBDB7256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C5CBE12-0DF4-46F9-9952-4C5FEBDB7256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C5CBE12-0DF4-46F9-9952-4C5FEBDB7256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9509AA57-E9B0-4A5A-9811-42290677D9DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9509AA57-E9B0-4A5A-9811-42290677D9DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9509AA57-E9B0-4A5A-9811-42290677D9DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9509AA57-E9B0-4A5A-9811-42290677D9DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05091F64-E952-4F1A-80C9-2038420A2E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05091F64-E952-4F1A-80C9-2038420A2E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05091F64-E952-4F1A-80C9-2038420A2E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05091F64-E952-4F1A-80C9-2038420A2E1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
