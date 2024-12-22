@@ -1,5 +1,7 @@
 ﻿using EmployeeTimeApi.Shared.Infrastructure.Api;
 using EmployeeTimeApi.Shared.Infrastructure.Exceptions;
+using FluentValidation.AspNetCore;
+using FluentValidation;
 using Microsoft.OpenApi.Models;
 
 namespace EmployeeTimeApi.Presentation;
@@ -28,11 +30,6 @@ internal static class Extensions
         {
             manager.FeatureProviders.Add(new InternalControllerFeatureProvider());
         });
-
-        //services.AddFluentValidationAutoValidation(config =>
-        //{
-        //    config.DisableDataAnnotationsValidation = true;
-        //});
 
         return services;
     }

@@ -1,5 +1,10 @@
-﻿using EmployeeTimeApi.Application.Employees.Services;
+﻿using EmployeeTimeApi.Application.Employees.Dtos;
+using EmployeeTimeApi.Application.Employees.Mappings;
+using EmployeeTimeApi.Application.Employees.Services;
+using EmployeeTimeApi.Application.Employees.Validators;
 using EmployeeTimeApi.Application.TimeEntries.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.CompilerServices;
 
@@ -15,6 +20,9 @@ internal static class Extensions
     {
         services.AddScoped<IEmployeesService, EmployeesService>();
         services.AddScoped<ITimeEntriesService, TimeEntriesService>();
+
+        services.AddValidators();
+        services.AddMappings();
 
         return services;
     }

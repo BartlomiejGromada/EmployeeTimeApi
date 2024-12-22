@@ -19,6 +19,8 @@ internal static class Extensions
         services.AddScoped<IEmployeesRepository, EmployeesRepository>();
         services.AddScoped<ITimeEntriesRepository, TimeEntriesRepository>();
 
+        Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+
         return services;
     }
 }

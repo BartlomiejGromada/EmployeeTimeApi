@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EmployeeTimeApi.Application\EmployeeTimeApi.Application.csproj" />
+    <ProjectReference Include="..\EmployeeTimeApi.Domain\EmployeeTimeApi.Domain.csproj" />
+    <ProjectReference Include="..\EmployeeTimeApi.Shared.Abstractions\EmployeeTimeApi.Shared.Abstractions.csproj" />
     <ProjectReference Include="..\EmployeeTimeApi.Shared.Infrastructure\EmployeeTimeApi.Shared.Infrastructure.csproj" />
   </ItemGroup>
 
