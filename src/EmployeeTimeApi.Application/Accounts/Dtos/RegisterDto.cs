@@ -3,4 +3,5 @@
 internal record RegisterDto(
     string Email,
     string Password,
-    string RepeatPassword);
+    string RepeatPassword,
+    bool IsAdmin);

@@ -1,6 +1,7 @@
 ﻿using EmployeeTimeApi.Application.Accounts.Dtos;
 using EmployeeTimeApi.Application.Accounts.Services;
 using EmployeeTimeApi.Presentation.Controllers.Base;
+using EmployeeTimeApi.Shared.Abstractions.Auth;
 using EmployeeTimeApi.Shared.Abstractions.Contexts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,7 @@ internal class AccountController : BaseController
     }
 
     [HttpPost("register")]
+    [Authorize(Roles = Roles.Admin)]
     [SwaggerOperation("Register for application")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -41,6 +43,7 @@ internal class AccountController : BaseController
     }
 
     [HttpPost("login")]
+    [AllowAnonymous]
     [SwaggerOperation("Log in to the application")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -54,7 +57,6 @@ internal class AccountController : BaseController
         return NoContent();
     }
 
-    [Authorize]
     [HttpDelete("sign-out")]
     [SwaggerOperation("Sign out")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]

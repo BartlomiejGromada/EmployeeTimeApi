@@ -11,12 +11,6 @@ public sealed class AccountContext : IAccountContext
     {
         _httpContextAccessor = httpContextAccessor;
     }
-    public int AccountId =>
-        _httpContextAccessor
-            .HttpContext?
-            .User
-            .GetAccountId() ??
-        throw new ApplicationException("User context is unavailable.");
 
     public bool IsAuthenticated =>
         _httpContextAccessor
@@ -25,4 +19,24 @@ public sealed class AccountContext : IAccountContext
             .Identity?
             .IsAuthenticated ??
         throw new ApplicationException("User context is unavailable.");
+
+    public int AccountId =>
+        _httpContextAccessor
+            .HttpContext?
+            .User
+            .GetAccountId() ??
+        throw new ApplicationException("User context is unavailable.");
+
+    public string AccountEmail =>
+       _httpContextAccessor
+            .HttpContext?
+            .User
+            .GetAccountEmail() ??
+        throw new ApplicationException("User context is unavailable.");
+
+    public bool IsInRole(string role) =>
+        _httpContextAccessor
+            .HttpContext?
+            .User
+            .IsInRole(role) ?? false;
 }

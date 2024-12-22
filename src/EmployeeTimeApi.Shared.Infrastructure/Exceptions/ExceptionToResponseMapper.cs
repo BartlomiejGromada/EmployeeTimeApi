@@ -12,8 +12,10 @@ public class ExceptionToResponseMapper : IExceptionToResponseMapper
     public ExceptionResponse Map(Exception exception)
         => exception switch
         {
-            BusinessRuleException ex => new ExceptionResponse(new ErrorsResponse(new Error(GetErrorCode(ex), ex.Message))
-                , HttpStatusCode.BadRequest),
+            BusinessRuleException ex => new ExceptionResponse(new ErrorsResponse(new Error(GetErrorCode(ex), ex.Message)),
+                HttpStatusCode.BadRequest),
+            UnauthorizedAccessException ex => new ExceptionResponse(new ErrorsResponse(new Error(GetErrorCode(ex), ex.Message)),
+                HttpStatusCode.Forbidden),
             _ => new ExceptionResponse(new ErrorsResponse(new Error("error", "There was an error.")),
                 HttpStatusCode.InternalServerError)
         };

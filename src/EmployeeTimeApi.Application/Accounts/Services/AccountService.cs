@@ -16,8 +16,6 @@ namespace EmployeeTimeApi.Application.Accounts.Services;
 
 internal sealed class AccountService : IAccountService
 {
-    private const string DefaultRole = "user";
-
     private readonly IAccountRepository _repository;
     private readonly IPasswordHasher<Account> _passwordHasher;
     private readonly IMapper _mapper;
@@ -51,7 +49,7 @@ internal sealed class AccountService : IAccountService
 
         var account = _mapper.Map<Account>(dto);
         account.HashedPassword = _passwordHasher.HashPassword(account, dto.Password);
-        account.Role = DefaultRole;
+        account.Role = dto.IsAdmin ? Roles.Admin : Roles.User;
 
         await _repository.AddAsync(account);
     }

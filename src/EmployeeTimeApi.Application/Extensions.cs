@@ -22,6 +22,7 @@ internal static class Extensions
         services.AddScoped<IAccountService, AccountService>();
         services.AddScoped<IEmployeesService, EmployeesService>();
         services.AddScoped<ITimeEntriesService, TimeEntriesService>();
+        services.AddScoped<IEmployeeAccessValidationService, EmployeeAccessValidationService>();
 
         services.AddFluentValidationAutoValidation(config =>
         {

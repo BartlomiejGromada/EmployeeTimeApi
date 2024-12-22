@@ -6,6 +6,7 @@ using EmployeeTimeApi.Application.Employees.ApiObjects;
 using EmployeeTimeApi.Application.Employees.Services;
 using EmployeeTimeApi.Application.Shared;
 using Microsoft.AspNetCore.Authorization;
+using EmployeeTimeApi.Shared.Abstractions.Auth;
 
 namespace EmployeeTimeApi.Presentation.Controllers;
 
@@ -20,6 +21,7 @@ internal class EmployeesController : BaseController
     }
 
     [HttpGet]
+    [Authorize(Roles = Roles.Admin)]
     [SwaggerOperation("Get employees")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<Paged<EmployeeDto>>> GetPagedAsync(
@@ -28,7 +30,6 @@ internal class EmployeesController : BaseController
             => Ok(await _services.GetPagedAsync(browseQuery, cancellationToken));
 
 
-    [Authorize]
     [HttpGet("{id:int}")]
     [ActionName("GetEmployeeDetails")]
     [SwaggerOperation("Get employee details")]
@@ -40,6 +41,7 @@ internal class EmployeesController : BaseController
             => OkOrNotFound(await _services.GetByIdAsync(id, cancellationToken));
 
     [HttpPost]
+    [Authorize(Roles = Roles.Admin)]
     [SwaggerOperation("Add employee")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -53,6 +55,7 @@ internal class EmployeesController : BaseController
     }
 
     [HttpPut("{id:int}")]
+    [Authorize(Roles = Roles.Admin)]
     [SwaggerOperation("Update employee")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -67,6 +70,7 @@ internal class EmployeesController : BaseController
     }
 
     [HttpDelete("{id:int}")]
+    [Authorize(Roles = Roles.Admin)]
     [SwaggerOperation("Delete employee")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

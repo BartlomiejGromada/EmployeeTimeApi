@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeTimeApi.Presentation.Controllers.Base;
 
 [ApiController]
+[Authorize]
 [ProducesDefaultContentType]
 public abstract class BaseController : ControllerBase
 {

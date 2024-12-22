@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using EmployeeTimeApi.Application.Employees.Repositories;
+using EmployeeTimeApi.Application.Employees.Services;
 using EmployeeTimeApi.Application.Shared;
 using EmployeeTimeApi.Application.TimeEntries.ApiObjects;
 using EmployeeTimeApi.Application.TimeEntries.Dtos;
@@ -13,17 +13,17 @@ namespace EmployeeTimeApi.Application.TimeEntries.Services;
 internal sealed class TimeEntriesService : ITimeEntriesService
 {
     private readonly ITimeEntriesRepository _timeEntriesRepository;
-    private readonly IEmployeesRepository _employeesRepository;
     private readonly IMapper _mapper;
+    private readonly IEmployeeAccessValidationService _accessService;
 
     public TimeEntriesService(
         ITimeEntriesRepository repository,
-        IEmployeesRepository employeesRepository,
-        IMapper mapper)
+        IMapper mapper,
+        IEmployeeAccessValidationService accessService)
     {
         _timeEntriesRepository = repository;
-        _employeesRepository = employeesRepository;
         _mapper = mapper;
+        _accessService = accessService;
     }
 
     public async Task<Paged<TimeEntryDto>> GetPagedAsync(
@@ -31,9 +31,9 @@ internal sealed class TimeEntriesService : ITimeEntriesService
         BrowseTimeEntriesQuery query,
         CancellationToken? cancellationToken = default)
     {
-        var isEmployeeExist = await _employeesRepository.IsExistByIdAsync(employeeId, cancellationToken);
+        var employeeDto = await _accessService.ValidateAsync(employeeId, cancellationToken);
 
-        if (!isEmployeeExist)
+        if (employeeDto is null)
         {
             throw new EmployeeDoesntExistException(employeeId);
         }
@@ -48,9 +48,9 @@ internal sealed class TimeEntriesService : ITimeEntriesService
         AddTimeEntryDto dto, 
         CancellationToken? cancellationToken = null)
     {
-        var isEmployeeExist = await _employeesRepository.IsExistByIdAsync(employeeId, cancellationToken);
+        var employeeDto = await _accessService.ValidateAsync(employeeId, cancellationToken);
 
-        if (!isEmployeeExist)
+        if (employeeDto is null)
         {
             throw new EmployeeDoesntExistException(employeeId);
         }
@@ -82,9 +82,9 @@ internal sealed class TimeEntriesService : ITimeEntriesService
         UpdateTimeEntryDto dto,
         CancellationToken? cancellationToken = default)
     {
-        var isEmployeeExist = await _employeesRepository.IsExistByIdAsync(employeeId, cancellationToken);
+        var employeeDto = await _accessService.ValidateAsync(employeeId, cancellationToken);
 
-        if (!isEmployeeExist)
+        if (employeeDto is null)
         {
             throw new EmployeeDoesntExistException(employeeId);
         }
@@ -127,9 +127,9 @@ internal sealed class TimeEntriesService : ITimeEntriesService
         int entryId, 
         CancellationToken? cancellationToken = null)
     {
-        var isEmployeeExist = await _employeesRepository.IsExistByIdAsync(employeeId, cancellationToken);
+        var employeeDto = await _accessService.ValidateAsync(employeeId, cancellationToken);
 
-        if (!isEmployeeExist)
+        if (employeeDto is null)
         {
             throw new EmployeeDoesntExistException(employeeId);
         }

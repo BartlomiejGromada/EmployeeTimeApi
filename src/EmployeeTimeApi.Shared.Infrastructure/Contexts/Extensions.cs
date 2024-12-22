@@ -20,4 +20,12 @@ public static class Extensions
             parsedAccountId :
             throw new ApplicationException("Account id is unavailable");
     }
+
+    public static string GetAccountEmail(this ClaimsPrincipal? principal)
+    {
+        string? accountEmail = principal?.FindFirstValue(ClaimTypes.Email);
+
+        return accountEmail ??
+            throw new ApplicationException("Account email is unavailable");
+    }
 }

@@ -5,6 +5,7 @@ using EmployeeTimeApi.Application.Shared;
 using EmployeeTimeApi.Application.TimeEntries.Services;
 using EmployeeTimeApi.Application.TimeEntries.Dtos;
 using EmployeeTimeApi.Application.TimeEntries.ApiObjects;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeTimeApi.Modules.WorkTimeManagement.Api.Controllers;
 

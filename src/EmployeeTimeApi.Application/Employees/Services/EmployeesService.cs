@@ -12,14 +12,17 @@ internal sealed class EmployeesService : IEmployeesService
 {
     private readonly IEmployeesRepository _repository;
     private readonly IMapper _mapper;
+    private readonly IEmployeeAccessValidationService _accessService;
     public EmployeesService(
         IEmployeesRepository repository,
-        IMapper mapper)
+        IMapper mapper,
+        IEmployeeAccessValidationService accessService)
     {
         _repository = repository;
         _mapper = mapper;
+        _accessService = accessService;
     }
-    
+
     public async Task<Paged<EmployeeDto>> GetPagedAsync(
         BrowseEmployeesQuery query,
         CancellationToken? cancellationToken = default)
@@ -33,9 +36,8 @@ internal sealed class EmployeesService : IEmployeesService
         int id,
         CancellationToken? cancellationToken = default)
     {
-        var employee = await _repository.GetByIdAsync(id, cancellationToken);
-
-        return _mapper.Map<EmployeeDto>(employee);
+        var employeeDto = await _accessService.ValidateAsync(id, cancellationToken);
+        return employeeDto;
     }
 
     public async Task<int> AddAsync(
