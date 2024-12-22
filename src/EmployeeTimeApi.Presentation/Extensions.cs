@@ -1,7 +1,5 @@
 ﻿using EmployeeTimeApi.Shared.Infrastructure.Api;
 using EmployeeTimeApi.Shared.Infrastructure.Exceptions;
-using FluentValidation.AspNetCore;
-using FluentValidation;
 using Microsoft.OpenApi.Models;
 
 namespace EmployeeTimeApi.Presentation;
@@ -46,7 +44,7 @@ internal static class Extensions
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee Time API");
             });
         }
-
+      
         app.UseHttpsRedirection();
         app.UseAuthorization();
 
