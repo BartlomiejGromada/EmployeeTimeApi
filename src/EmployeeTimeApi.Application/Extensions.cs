@@ -1,4 +1,6 @@
-﻿using EmployeeTimeApi.Application.Employees.Services;
+﻿using EmployeeTimeApi.Application.Accounts.Services;
+using EmployeeTimeApi.Application.Accounts.Validators;
+using EmployeeTimeApi.Application.Employees.Services;
 using EmployeeTimeApi.Application.Employees.Validators;
 using EmployeeTimeApi.Application.TimeEntries.Services;
 using EmployeeTimeApi.Application.TimeEntries.Validators;
@@ -17,6 +19,7 @@ internal static class Extensions
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
+        services.AddScoped<IAccountService, AccountService>();
         services.AddScoped<IEmployeesService, EmployeesService>();
         services.AddScoped<ITimeEntriesService, TimeEntriesService>();
 
@@ -26,6 +29,7 @@ internal static class Extensions
         });
         services.AddEmployeesValidators();
         services.AddTimeEntriesValidators();
+        services.AddAccountValidators();
 
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

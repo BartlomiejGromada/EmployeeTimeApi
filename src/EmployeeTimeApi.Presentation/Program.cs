@@ -13,9 +13,10 @@ public class Program
 
         builder.Host.AddLogger(builder.Configuration);
 
+        builder.Services.AddGeneralInfrastructure();
+
         builder.Services.AddApplication();
         builder.Services.AddInfrastructure();
-        builder.Services.AddGeneralInfrastructure();
 
         var app = builder.Build();
 

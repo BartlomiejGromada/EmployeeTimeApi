@@ -1,5 +1,4 @@
-﻿using EmployeeTimeApi.Application.Employees.Dtos;
-using EmployeeTimeApi.Application.TimeEntries.Dtos;
+﻿using EmployeeTimeApi.Application.TimeEntries.Dtos;
 using FluentValidation;
 
 namespace EmployeeTimeApi.Application.TimeEntries.Validators;

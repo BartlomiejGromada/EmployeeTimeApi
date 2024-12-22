@@ -5,6 +5,7 @@ using EmployeeTimeApi.Application.Employees.Dtos;
 using EmployeeTimeApi.Application.Employees.ApiObjects;
 using EmployeeTimeApi.Application.Employees.Services;
 using EmployeeTimeApi.Application.Shared;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeTimeApi.Presentation.Controllers;
 
@@ -27,6 +28,7 @@ internal class EmployeesController : BaseController
             => Ok(await _services.GetPagedAsync(browseQuery, cancellationToken));
 
 
+    [Authorize]
     [HttpGet("{id:int}")]
     [ActionName("GetEmployeeDetails")]
     [SwaggerOperation("Get employee details")]

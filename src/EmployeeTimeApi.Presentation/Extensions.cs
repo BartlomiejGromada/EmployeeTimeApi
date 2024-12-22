@@ -1,4 +1,6 @@
 ﻿using EmployeeTimeApi.Shared.Infrastructure.Api;
+using EmployeeTimeApi.Shared.Infrastructure.Auth;
+using EmployeeTimeApi.Shared.Infrastructure.Contexts;
 using EmployeeTimeApi.Shared.Infrastructure.Exceptions;
 using Microsoft.OpenApi.Models;
 
@@ -23,11 +25,14 @@ internal static class Extensions
         });
 
 
-        services.AddAuthorization();
         services.AddControllers().ConfigureApplicationPartManager(manager =>
         {
             manager.FeatureProviders.Add(new InternalControllerFeatureProvider());
         });
+
+        services.AddAuth();
+        services.AddAuthorization();
+        services.AddContext();
 
         return services;
     }
@@ -46,6 +51,7 @@ internal static class Extensions
         }
       
         app.UseHttpsRedirection();
+        app.UseAuth();
         app.UseAuthorization();
 
         return app;

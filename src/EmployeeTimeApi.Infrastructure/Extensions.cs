@@ -1,7 +1,10 @@
-﻿using EmployeeTimeApi.Application.Employees.Repositories;
+﻿using EmployeeTimeApi.Application.Accounts.Repositories;
+using EmployeeTimeApi.Application.Employees.Repositories;
 using EmployeeTimeApi.Application.TimeEntries.Repositories;
+using EmployeeTimeApi.Domain.Accounts.Models;
 using EmployeeTimeApi.Infrastructure.Postgres;
 using EmployeeTimeApi.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.CompilerServices;
 
@@ -16,6 +19,8 @@ internal static class Extensions
     {
         services.AddScoped<INpgsqlConnectionFactory, NpgsqlConnectionFactory>();
 
+        services.AddScoped<IPasswordHasher<Account>, PasswordHasher<Account>>();
+        services.AddScoped<IAccountRepository, AccountRepository>();
         services.AddScoped<IEmployeesRepository, EmployeesRepository>();
         services.AddScoped<ITimeEntriesRepository, TimeEntriesRepository>();
 
