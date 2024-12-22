@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="TimeEntries\Exceptions\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\EmployeeTimeApi.Shared.Abstractions\EmployeeTimeApi.Shared.Abstractions.csproj" />
   </ItemGroup>
 

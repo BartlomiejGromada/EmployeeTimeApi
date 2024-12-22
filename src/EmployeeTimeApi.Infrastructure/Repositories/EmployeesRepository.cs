@@ -3,7 +3,6 @@ using EmployeeTimeApi.Application.Employees.Repositories;
 using EmployeeTimeApi.Application.Shared;
 using EmployeeTimeApi.Domain.Employees.Models;
 using EmployeeTimeApi.Infrastructure.Postgres;
-using System.Data.Common;
 
 namespace EmployeeTimeApi.Infrastructure.Repositories;
 
@@ -17,7 +16,9 @@ internal sealed class EmployeesRepository : IEmployeesRepository
     }
 
     public async Task<bool> IsEmailAlreadyTakenAsync(
-        string email, int? id = null, CancellationToken? cancellationToken = default)
+        string email,
+        int? id = null,
+        CancellationToken? cancellationToken = default)
     {
         await using var connection = _connectionFactory.CreateConnection();
 
@@ -43,7 +44,10 @@ internal sealed class EmployeesRepository : IEmployeesRepository
         return await connection.ExecuteScalarAsync<bool>(query, new { Email = email, Id =  id });
     }
 
-    public async Task<Paged<Employee>> GetPaged(int page, int results, CancellationToken? cancellationToken = default)
+    public async Task<Paged<Employee>> GetPagedAsync(
+        int page,
+        int results,
+        CancellationToken? cancellationToken = default)
     {
         await using var connection = _connectionFactory.CreateConnection();
 
@@ -58,7 +62,7 @@ internal sealed class EmployeesRepository : IEmployeesRepository
                 SELECT COUNT(*) FROM workplace.employees;
             ";
 
-        using var multi = connection.QueryMultiple(sql, new { ResultsPerPage = results, Offset = offset });
+        using var multi = await connection.QueryMultipleAsync(sql, new { ResultsPerPage = results, Offset = offset });
         {
            var employees = multi.Read<Employee>().ToList();
 
@@ -75,7 +79,9 @@ internal sealed class EmployeesRepository : IEmployeesRepository
         }
     }
 
-    public async Task<bool> IsExistByIdAsync(int id, CancellationToken? cancellationToken = default)
+    public async Task<bool> IsExistByIdAsync(
+        int id,
+        CancellationToken? cancellationToken = default)
     {
         await using var connection = _connectionFactory.CreateConnection();
 
@@ -88,7 +94,9 @@ internal sealed class EmployeesRepository : IEmployeesRepository
         return await connection.ExecuteScalarAsync<bool>(query, new { Id = id });
     }
    
-    public async Task<Employee?> GetByIdAsync(int id, CancellationToken? cancellationToken)
+    public async Task<Employee?> GetByIdAsync(
+        int id,
+        CancellationToken? cancellationToken)
     {
         await using var connection = _connectionFactory.CreateConnection();
 
@@ -100,7 +108,9 @@ internal sealed class EmployeesRepository : IEmployeesRepository
         return await connection.QueryFirstOrDefaultAsync<Employee>(query, new { Id = id });
     }
 
-    public async Task<int> AddAsync(Employee employee, CancellationToken? cancellationToken = null)
+    public async Task<int> AddAsync(
+        Employee employee,
+        CancellationToken? cancellationToken = null)
     {
         await using var connection = _connectionFactory.CreateConnection();
 
@@ -113,7 +123,10 @@ internal sealed class EmployeesRepository : IEmployeesRepository
         return id;
     }
 
-    public async Task UpdateAsync(int id, Employee employee, CancellationToken? cancellationToken = default)
+    public async Task UpdateAsync(
+        int id,
+        Employee employee,
+        CancellationToken? cancellationToken = default)
     {
         await using var connection = _connectionFactory.CreateConnection();
 
@@ -135,7 +148,9 @@ internal sealed class EmployeesRepository : IEmployeesRepository
         });
     }
     
-    public async Task DeleteByIdAsync(int id, CancellationToken? cancellationToken = default)
+    public async Task DeleteByIdAsync(
+        int id,
+        CancellationToken? cancellationToken = default)
     {
         await using var connection = _connectionFactory.CreateConnection();
 

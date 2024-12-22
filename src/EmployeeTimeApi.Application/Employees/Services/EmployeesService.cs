@@ -12,26 +12,35 @@ internal sealed class EmployeesService : IEmployeesService
 {
     private readonly IEmployeesRepository _repository;
     private readonly IMapper _mapper;
-    public EmployeesService(IEmployeesRepository repository, IMapper mapper)
+    public EmployeesService(
+        IEmployeesRepository repository,
+        IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
     }
-    public async Task<Paged<EmployeeDto>> GetPagedAsync(BrowseEmployeesQuery query, CancellationToken? cancellationToken = null)
+    
+    public async Task<Paged<EmployeeDto>> GetPagedAsync(
+        BrowseEmployeesQuery query,
+        CancellationToken? cancellationToken = default)
     {
-        var employees = await _repository.GetPaged(query.Page, query.Results, cancellationToken);
+        var employees = await _repository.GetPagedAsync(query.Page, query.Results, cancellationToken);
 
         return employees.Map(_mapper.Map<EmployeeDto>);
     }
 
-    public async Task<EmployeeDto?> GetByIdAsync(int id, CancellationToken? cancellationToken = null)
+    public async Task<EmployeeDto?> GetByIdAsync(
+        int id,
+        CancellationToken? cancellationToken = default)
     {
         var employee = await _repository.GetByIdAsync(id, cancellationToken);
 
         return _mapper.Map<EmployeeDto>(employee);
     }
 
-    public async Task<int> AddAsync(AddEmployeeDto dto, CancellationToken? cancellationToken = null)
+    public async Task<int> AddAsync(
+        AddEmployeeDto dto,
+        CancellationToken? cancellationToken = default)
     {
         var ifAlreadyExist = await _repository.IsEmailAlreadyTakenAsync(dto.Email, id: null, cancellationToken);
 
@@ -46,7 +55,10 @@ internal sealed class EmployeesService : IEmployeesService
         return id;
     }
 
-    public async Task UpdateAsync(int id, UpdateEmployeeDto dto, CancellationToken cancellationToken)
+    public async Task UpdateAsync(
+        int id,
+        UpdateEmployeeDto dto,
+        CancellationToken? cancellationToken = default)
     {
         var isExist = await _repository.IsExistByIdAsync(id, cancellationToken);
         
@@ -67,7 +79,9 @@ internal sealed class EmployeesService : IEmployeesService
         await _repository.UpdateAsync(id, employee, cancellationToken);
     }
 
-    public async Task DeleteByIdAsync(int id, CancellationToken cancellationToken)
+    public async Task DeleteByIdAsync(
+        int id,
+        CancellationToken? cancellationToken = default)
     {
         var isExist = await _repository.IsExistByIdAsync(id, cancellationToken);
 

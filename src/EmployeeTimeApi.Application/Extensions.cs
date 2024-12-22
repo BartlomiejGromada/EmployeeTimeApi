@@ -1,11 +1,10 @@
-﻿using EmployeeTimeApi.Application.Employees.Dtos;
-using EmployeeTimeApi.Application.Employees.Mappings;
-using EmployeeTimeApi.Application.Employees.Services;
+﻿using EmployeeTimeApi.Application.Employees.Services;
 using EmployeeTimeApi.Application.Employees.Validators;
 using EmployeeTimeApi.Application.TimeEntries.Services;
-using FluentValidation;
+using EmployeeTimeApi.Application.TimeEntries.Validators;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("EmployeeTimeApi.Presentation")]
@@ -21,8 +20,14 @@ internal static class Extensions
         services.AddScoped<IEmployeesService, EmployeesService>();
         services.AddScoped<ITimeEntriesService, TimeEntriesService>();
 
-        services.AddValidators();
-        services.AddMappings();
+        services.AddFluentValidationAutoValidation(config =>
+        {
+            config.DisableDataAnnotationsValidation = true;
+        });
+        services.AddEmployeesValidators();
+        services.AddTimeEntriesValidators();
+
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         return services;
     }
