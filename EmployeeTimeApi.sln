@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35521.163 d17.12
+VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Presentation", "src\EmployeeTimeApi.Presentation\EmployeeTimeApi.Presentation.csproj", "{9790144D-6829-4447-B463-4CA40DD86F02}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Shared.Abstractions", "src\EmployeeTimeApi.Shared.Abstractions\EmployeeTimeApi.Shared.Abstractions.csproj", "{9509AA57-E9B0-4A5A-9811-42290677D9DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Shared.Infrastructure", "src\EmployeeTimeApi.Shared.Infrastructure\EmployeeTimeApi.Shared.Infrastructure.csproj", "{05091F64-E952-4F1A-80C9-2038420A2E1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BB22D060-7961-4CD3-9315-FA5DFD3783BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Tests.Unit", "tests\EmployeeTimeApi.Unit.Tests\EmployeeTimeApi.Tests.Unit.csproj", "{86DFF09E-F150-4F7B-8F57-C39667B871C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,8 +49,15 @@ Global
 		{05091F64-E952-4F1A-80C9-2038420A2E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05091F64-E952-4F1A-80C9-2038420A2E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05091F64-E952-4F1A-80C9-2038420A2E1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86DFF09E-F150-4F7B-8F57-C39667B871C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86DFF09E-F150-4F7B-8F57-C39667B871C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86DFF09E-F150-4F7B-8F57-C39667B871C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86DFF09E-F150-4F7B-8F57-C39667B871C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{86DFF09E-F150-4F7B-8F57-C39667B871C9} = {BB22D060-7961-4CD3-9315-FA5DFD3783BF}
 	EndGlobalSection
 EndGlobal
