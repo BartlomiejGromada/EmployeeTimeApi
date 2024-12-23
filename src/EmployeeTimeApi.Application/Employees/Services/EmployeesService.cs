@@ -13,6 +13,7 @@ internal sealed class EmployeesService : IEmployeesService
     private readonly IEmployeesRepository _repository;
     private readonly IMapper _mapper;
     private readonly IEmployeeAccessValidationService _accessService;
+
     public EmployeesService(
         IEmployeesRepository repository,
         IMapper mapper,

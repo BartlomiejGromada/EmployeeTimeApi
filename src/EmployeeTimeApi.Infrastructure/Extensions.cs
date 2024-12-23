@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("EmployeeTimeApi.Presentation")]
 [assembly: InternalsVisibleTo("EmployeeTimeApi.Tests.Unit")]
+[assembly: InternalsVisibleTo("EmployeeTimeApi.Tests.Integration")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 namespace EmployeeTimeApi.Infrastructure;
 

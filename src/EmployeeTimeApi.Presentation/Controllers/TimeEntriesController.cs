@@ -5,12 +5,11 @@ using EmployeeTimeApi.Application.Shared;
 using EmployeeTimeApi.Application.TimeEntries.Services;
 using EmployeeTimeApi.Application.TimeEntries.Dtos;
 using EmployeeTimeApi.Application.TimeEntries.ApiObjects;
-using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeTimeApi.Modules.WorkTimeManagement.Api.Controllers;
 
 
-[Route("employees/{id:int}/time-entries")]
+[Route("api/employees/{id:int}/time-entries")]
 internal class TimeEntriesController : BaseController
 {
     private readonly ITimeEntriesService _services;

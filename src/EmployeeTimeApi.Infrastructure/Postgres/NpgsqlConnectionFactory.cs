@@ -1,5 +1,4 @@
 ﻿using EmployeeTimeApi.Infrastructure.Configurations;
-using EmployeeTimeApi.Shared;
 using EmployeeTimeApi.Shared.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Npgsql;

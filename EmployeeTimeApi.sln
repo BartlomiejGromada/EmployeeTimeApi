@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BB22D060
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Tests.Unit", "tests\EmployeeTimeApi.Tests.Unit\EmployeeTimeApi.Tests.Unit.csproj", "{86DFF09E-F150-4F7B-8F57-C39667B871C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Tests.Integration", "tests\EmployeeTimeApi.Tests.Integration\EmployeeTimeApi.Tests.Integration.csproj", "{D496FED3-2EDE-4E8D-B923-878C8ECFBCCB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTimeApi.Tests.Integration", "tests\EmployeeTimeApi.Tests.Integration\EmployeeTimeApi.Tests.Integration.csproj", "{4639E3D2-D98C-4705-8322-8BDDAF55AA8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,16 +55,16 @@ Global
 		{86DFF09E-F150-4F7B-8F57-C39667B871C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86DFF09E-F150-4F7B-8F57-C39667B871C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86DFF09E-F150-4F7B-8F57-C39667B871C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D496FED3-2EDE-4E8D-B923-878C8ECFBCCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D496FED3-2EDE-4E8D-B923-878C8ECFBCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D496FED3-2EDE-4E8D-B923-878C8ECFBCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D496FED3-2EDE-4E8D-B923-878C8ECFBCCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4639E3D2-D98C-4705-8322-8BDDAF55AA8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4639E3D2-D98C-4705-8322-8BDDAF55AA8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4639E3D2-D98C-4705-8322-8BDDAF55AA8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4639E3D2-D98C-4705-8322-8BDDAF55AA8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{86DFF09E-F150-4F7B-8F57-C39667B871C9} = {BB22D060-7961-4CD3-9315-FA5DFD3783BF}
-		{D496FED3-2EDE-4E8D-B923-878C8ECFBCCB} = {BB22D060-7961-4CD3-9315-FA5DFD3783BF}
+		{4639E3D2-D98C-4705-8322-8BDDAF55AA8B} = {BB22D060-7961-4CD3-9315-FA5DFD3783BF}
 	EndGlobalSection
 EndGlobal

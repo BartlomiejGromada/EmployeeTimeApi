@@ -11,7 +11,7 @@ using EmployeeTimeApi.Shared.Abstractions.Auth;
 namespace EmployeeTimeApi.Presentation.Controllers;
 
 
-[Route("employees")]
+[Route("api/employees")]
 internal class EmployeesController : BaseController
 {
     private readonly IEmployeesService _services;

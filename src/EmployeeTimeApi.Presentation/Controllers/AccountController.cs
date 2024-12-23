@@ -10,7 +10,7 @@ using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace EmployeeTimeApi.Presentation.Controllers;
 
-[Route("account")]
+[Route("api/account")]
 internal class AccountController : BaseController
 {
     private const string AccessTokenCookie = "__access-token";

@@ -2,7 +2,7 @@
 
 namespace EmployeeTimeApi.Infrastructure.Postgres;
 
-internal interface INpgsqlConnectionFactory
+public interface INpgsqlConnectionFactory
 {
     NpgsqlConnection CreateConnection();
 }
