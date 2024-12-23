@@ -49,8 +49,7 @@ internal static class Extensions
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee Time API");
             });
         }
-      
-        app.UseHttpsRedirection();
+
         app.UseAuth();
         app.UseAuthorization();
 

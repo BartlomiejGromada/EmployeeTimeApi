@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+    postgres:
+        image: postgres:15
+        container_name: employee_time_postgres
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: EmployeeTimeDb
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        depends_on:
+            - postgres
+        environment:
+            POSTGRES__CONNECTIONSTRING: "Host=postgres; Database=EmployeeTimeDb; Username=postgres; Password=postgres;"
+            AUTH__ISSUER_SIGNING_KEY: "fa5DRdkVwZeQnrDAcBrHCYwAWd6y2crPUbSZq4zUWBRFwDfKDXQWH38vZRfv"
+            AUTH__ISSUER: "employeeTimeApi"
+            AUTH__VALID_ISSUER: "employeeTimeApi"
+            AUTH__VALIDATE_AUDIENCE: "false"
+            AUTH__VALIDATE_ISSUER: "true"
+            AUTH__VALIDATE_LIFETIME: "true"
+            AUTH__EXPIRY: "08.00:00:00"
+            AUTH__CHALLENGE: "Bearer"
+            AUTH__COOKIE__HTTP_ONLY: "true"
+            AUTH__COOKIE__SAME_SITE: "unspecified"
+            AUTH__COOKIE__SECURE: "false"
+        ports:
+            - "5001:5001"
+
+volumes:
+    postgres_data:
