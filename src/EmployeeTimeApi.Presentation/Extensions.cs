@@ -41,14 +41,11 @@ internal static class Extensions
     {
         app.UseErrorHandling();
 
-        if (env.IsDevelopment())
+        app.UseSwagger();
+        app.UseSwaggerUI(c =>
         {
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee Time API");
-            });
-        }
+        });
 
         app.UseAuth();
         app.UseAuthorization();
